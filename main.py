@@ -11,7 +11,7 @@ slurs = [
 ]
 
 # Channel ID to report slur usage
-REPORT_CHANNEL_ID = 1225617089486651431
+CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
 
 # Initialize bot intents
 intents = discord.Intents.default()
@@ -33,7 +33,7 @@ async def on_message(message):
     if any(re.search(slur, message.content.lower()) for slur in slurs):
         await message.channel.send(f"{message.author.mention}, Woah dude. Don't say that. That's warning 1.")
 
-        report_channel = bot.get_channel(REPORT_CHANNEL_ID)
+        report_channel = bot.get_channel(CHANNEL_ID)
         if report_channel:
             await report_channel.send(f"Warning: {message.author.mention} used offensive language in {message.channel.mention}")
 
