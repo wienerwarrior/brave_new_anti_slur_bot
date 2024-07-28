@@ -11,7 +11,7 @@ slurs = [
 ]
 
 # Channel ID to report slur usage
-REPORT_CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
+REPORT_CHANNEL_ID = 1225617089486651431
 
 # Initialize bot intents
 intents = discord.Intents.default()
