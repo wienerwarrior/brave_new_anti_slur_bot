@@ -7,7 +7,7 @@ slurs = ['fag', 'faggot', 'nigger', 'retard', 'spic', 'chink', 'rape', 'raped', 
 REPORT_CHANNEL_ID = 1266626575261106186
 
 intents = discord.Intents.default()
-intents.message_content = True  # Correct intent for reading message content
+intents.messages = True
 
 # Initialize the bot
 bot = commands.Bot(command_prefix='!', intents=intents)
