@@ -2,12 +2,15 @@ import os
 import discord
 from discord.ext import commands
 
+# List of offensive slurs
 slurs = ['fag', 'faggot', 'nigger', 'retard', 'spic', 'chink', 'rape', 'raped', 'tranny', 'trany', 'homo']
 
-REPORT_CHANNEL_ID = 1266626575261106186
+# Channel ID to report slur usage
+REPORT_CHANNEL_ID = 1266626575261106186  # Replace with your actual channel ID
 
+# Initialize bot intents
 intents = discord.Intents.default()
-intents.messages = True
+intents.messages = True  # Use 'messages' to read messages content
 
 # Initialize the bot
 bot = commands.Bot(command_prefix='!', intents=intents)
@@ -16,13 +19,6 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print(f"Bot is ready. Logged in as {bot.user}")
 
-print("Getting token from environment...")
-token = os.getenv('DISCORD_BOT_TOKEN')
-if token is None:
-    print("Error: DISCORD_BOT_TOKEN is not set.")
-else:
-    print("Token found, running bot...")
-    bot.run(token)
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
