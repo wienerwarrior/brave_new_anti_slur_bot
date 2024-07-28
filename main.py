@@ -14,8 +14,15 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_ready():
-    print("Goliath. On. Line.")
+    print(f"Bot is ready. Logged in as {bot.user}")
 
+print("Getting token from environment...")
+token = os.getenv('DISCORD_BOT_TOKEN')
+if token is None:
+    print("Error: DISCORD_BOT_TOKEN is not set.")
+else:
+    print("Token found, running bot...")
+    bot.run(token)
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
