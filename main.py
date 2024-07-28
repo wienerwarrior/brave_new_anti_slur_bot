@@ -13,7 +13,7 @@ slurs = [
 # Check environment variables
 print("Fetching environment variables...")
 DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
-CHANNEL_ID = os.getenv('CHANNEL_ID')
+CHANNEL_ID = 1225617089486651431
 
 print(f"DISCORD_BOT_TOKEN: {DISCORD_BOT_TOKEN}")
 print(f"CHANNEL_ID: {CHANNEL_ID}")
