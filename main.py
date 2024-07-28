@@ -7,7 +7,7 @@ slurs = ['fag', 'faggot', 'nigger', 'retard', 'spic', 'chink']
 REPORT_CHANNEL_ID = 1266626575261106186
 
 intents = discord.Intents.default()
-intents.messages = True
+intents.message_content = True  # Corrected to use message_content for intents
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
@@ -25,8 +25,9 @@ async def on_message(message):
 
         report_channel = bot.get_channel(REPORT_CHANNEL_ID)
         if report_channel:
-            await report_channel.send(f"Warning: {message.author.mention}  used offensive language in {message.channel.mention}")
+            await report_channel.send(f"Warning: {message.author.mention} used offensive language in {message.channel.mention}")
 
     await bot.process_commands(message)
-    token = os.getenv('DISCORD_BOT_TOKEN')
-    bot.run(token)
+
+token = os.getenv('DISCORD_BOT_TOKEN')
+bot.run(token)
