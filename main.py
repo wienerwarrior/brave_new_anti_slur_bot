@@ -6,11 +6,11 @@ from discord.ext import commands
 slurs = ['fag', 'faggot', 'nigger', 'retard', 'spic', 'chink', 'rape', 'raped', 'tranny', 'trany', 'homo']
 
 # Channel ID to report slur usage
-REPORT_CHANNEL_ID = 1266626575261106186  # Replace with your actual channel ID
+REPORT_CHANNEL_ID = int(os.getenv("CHANNEL_ID"))  # Ensure CHANNEL_ID is set in Heroku
 
 # Initialize bot intents
 intents = discord.Intents.default()
-intents.messages = True  # Use 'messages' to read messages content
+intents.message_content = True  # Correct intent for reading message content
 
 # Initialize the bot
 bot = commands.Bot(command_prefix='!', intents=intents)
