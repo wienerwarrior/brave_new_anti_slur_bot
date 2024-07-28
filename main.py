@@ -10,8 +10,18 @@ slurs = [
     r'\btrannys?\b', r'\btrannies?\b', r'\bhomos?\b', "slur_bot_test"
 ]
 
-# Channel ID to report slur usage
-CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
+# Check environment variables
+print("Fetching environment variables...")
+DISCORD_BOT_TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+CHANNEL_ID = os.getenv('CHANNEL_ID')
+
+print(f"DISCORD_BOT_TOKEN: {DISCORD_BOT_TOKEN}")
+print(f"CHANNEL_ID: {CHANNEL_ID}")
+
+if CHANNEL_ID is None:
+    print("Error: CHANNEL_ID is not set.")
+else:
+    CHANNEL_ID = int(CHANNEL_ID)
 
 # Initialize bot intents
 intents = discord.Intents.default()
@@ -40,9 +50,8 @@ async def on_message(message):
     await bot.process_commands(message)
 
 print("Getting token from environment...")
-token = os.getenv('DISCORD_BOT_TOKEN')
-if token is None:
+if DISCORD_BOT_TOKEN is None:
     print("Error: DISCORD_BOT_TOKEN is not set.")
 else:
     print("Token found, running bot...")
-    bot.run(token)
+    bot.run(DISCORD_BOT_TOKEN)
