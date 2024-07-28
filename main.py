@@ -7,7 +7,7 @@ from discord.ext import commands
 slurs = [
     r'\bfags?\b', r'\bfaggots?\b', r'\bniggers?\b', r'\bretards?\b',
     r'\bspics?\b', r'\bchinks?\b', r'\brapes?\b', r'\braped\b',
-    r'\btrannys?\b', r'\btrannies?\b', r'\bhomos?\b'
+    r'\btrannys?\b', r'\btrannies?\b', r'\bhomos?\b', "slur_bot_test"
 ]
 
 # Channel ID to report slur usage
